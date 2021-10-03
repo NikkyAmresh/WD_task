@@ -2,9 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import CardList from "../cardList/cardList";
 import "./homepage.css";
-import { addList } from "../../store/actions/appActions";
+import { addList, getAllData } from "../../store/actions/appActions";
 import { Redirect } from "react-router-dom";
 class HomePage extends React.Component {
+  componentDidMount() {
+    this.props.getAllData();
+  }
   handleListAdd = () => {
     this.props.addList();
   };
@@ -41,6 +44,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addList: () => dispatch(addList()),
+    getAllData: () => dispatch(getAllData()),
   };
 };
 

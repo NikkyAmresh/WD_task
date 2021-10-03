@@ -1,7 +1,5 @@
 const initState = {
-  appState: JSON.parse(localStorage.getItem("userData"))
-    ? JSON.parse(localStorage.getItem("userData")).appState
-    : [],
+  appState: []
 };
 
 const appReducer = (state = initState, action) => {
@@ -46,8 +44,14 @@ const appReducer = (state = initState, action) => {
         appState: [...state.appState],
       };
     case "updateState":
-      localStorage['userData'] = JSON.stringify(state);
-      return state;
+      action.value.map((list)=>{
+        if(!list.cards){
+          list.cards=[];
+        }
+      })
+      return {
+        appState: action.value
+      };
     default:
       return state;
   }

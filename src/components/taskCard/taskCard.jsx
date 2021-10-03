@@ -9,6 +9,7 @@ class TaskCard extends React.Component {
     this.props.removeCard({
       listIdx: this.props.cardlistIdx,
       cardIdx: this.props.cardIdx,
+      card: this.props.card,
     });
   };
 
@@ -18,6 +19,7 @@ class TaskCard extends React.Component {
       idx: this.props.cardIdx,
       name: e.target.name,
       value: e.target.value,
+      card: this.props.card,
     });
   };
 
@@ -25,9 +27,13 @@ class TaskCard extends React.Component {
     e.dataTransfer.setData("obj", taskObj.id);
     e.dataTransfer.setData("cardIdx", this.props.cardIdx);
     e.dataTransfer.setData("cardListIdx", this.props.cardlistIdx);
+    e.dataTransfer.setData("cardId", this.props.card.card_id);
+    e.dataTransfer.setData("title", this.props.card.title);
+    e.dataTransfer.setData("description", this.props.card.description);
   };
 
   render() {
+    debugger;
     const { card } = this.props;
     const { title, description } = card;
     return (

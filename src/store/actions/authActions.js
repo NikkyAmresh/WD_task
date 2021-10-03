@@ -1,9 +1,11 @@
 import { APICall } from "../../helper/api";
+import { AREA } from "../../helper/constants";
 export const signIn = (credentials) => {
   return (dispatch) => {
     new APICall({
       module: "auth",
       apiName: "login",
+      area: AREA.NO_AUTH,
       params: credentials,
     })
       .getResponse()
@@ -49,6 +51,7 @@ export const signUp = (newUser) => {
     new APICall({
       module: "auth",
       apiName: "signUp",
+      area: AREA.NO_AUTH,
       params: newUser,
     })
       .getResponse()
