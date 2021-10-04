@@ -3,7 +3,6 @@ const initState = {
 };
 
 const appReducer = (state = initState, action) => {
-  debugger;
   switch (action.type) {
     case "addCard":
       state.appState[action.idx].cards.push(action.value);

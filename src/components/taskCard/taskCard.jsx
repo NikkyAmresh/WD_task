@@ -33,7 +33,6 @@ class TaskCard extends React.Component {
   };
 
   render() {
-    debugger;
     const { card } = this.props;
     const { title, description } = card;
     return (

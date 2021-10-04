@@ -32,7 +32,6 @@ class CardList extends React.Component {
   };
 
   onDrop = (e, cardlist) => {
-    debugger;
     const cardInsIdx = e.dataTransfer.getData("cardIdx");
     const cardlistInsIdx = e.dataTransfer.getData("cardListIdx");
     const cardId = e.dataTransfer.getData("cardId");

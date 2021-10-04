@@ -120,7 +120,6 @@ export const removeList = (idx, listId) => {
   };
 };
 export const removeCard = (payload) => {
-  debugger;
   return (dispatch) => {
     new APICall({
       module: "card",
